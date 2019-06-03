@@ -20,10 +20,11 @@ class Account
   def withdraw(withdrawal_amount)
     @withdrawal_amount = withdrawal_amount
     if (@balance - withdrawal_amount) < 0 || @balance == 0
-      raise "insufficient funds"
+      raise 'insufficient funds'
     end
-      @balance -= withdrawal_amount
-      update_debit_history
+
+    @balance -= withdrawal_amount
+    update_debit_history
   end
 
   private

@@ -20,7 +20,7 @@ describe Account do
     end
 
     it 'records an instance of a deposit' do
-      expect(subject.deposit(100)).to eq [["06/03/2019", 100, nil, 100]]
+      expect(subject.deposit(100)).to eq [['06/03/2019', 100, nil, 100]]
     end
   end
 
@@ -37,18 +37,18 @@ describe Account do
     end
 
     it 'prohibits user from withdrawals if balance is 0' do
-      expect { subject.withdraw(50) }.to raise_error "insufficient funds"
+      expect { subject.withdraw(50) }.to raise_error 'insufficient funds'
     end
 
     it 'also prohibits user if withdrawal will result in less than 0' do
       subject.deposit(50)
-      expect { subject.withdraw(100) }.to raise_error "insufficient funds"
+      expect { subject.withdraw(100) }.to raise_error 'insufficient funds'
     end
 
     it 'records an instance of a withdrawal' do
       subject.deposit(100)
       subject.account_history.clear
-      expect(subject.withdraw(100)).to eq [["06/03/2019", nil, 100, 0]]
+      expect(subject.withdraw(100)).to eq [['06/03/2019', nil, 100, 0]]
     end
   end
 
@@ -75,10 +75,11 @@ describe Account do
       subject.withdraw(200)
       subject.withdraw(500)
       expect(subject.account_history).to eq(
-      [["06/03/2019", 1000, nil, 1000],
-      ["06/03/2019", 3000, nil, 4000],
-      ["06/03/2019", nil, 200, 3800],
-      ["06/03/2019", nil, 500, 3300]])
+        [['06/03/2019', 1000, nil, 1000],
+         ['06/03/2019', 3000, nil, 4000],
+         ['06/03/2019', nil, 200, 3800],
+         ['06/03/2019', nil, 500, 3300]]
+      )
     end
   end
 end
