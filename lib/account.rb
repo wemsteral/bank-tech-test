@@ -1,7 +1,6 @@
-
+# frozen_string_literal: true
 
 class Account
-
   attr_reader :balance
 
   def initialize
@@ -13,5 +12,10 @@ class Account
   end
 
   def withdraw(withdrawal_amount)
-  end 
+    if (@balance - withdrawal_amount) < 0 || @balance == 0
+      raise "insufficient funds"
+    else
+      @balance -= withdrawal_amount
+    end
+  end
 end
