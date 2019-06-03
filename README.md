@@ -35,5 +35,5 @@ I want to be able to withdraw an amount of money
 
 As a user
 So I can view my banking history
-I want to be able to see a statement of my activity
+I want to be able to see a statement of all my activity
 ```
