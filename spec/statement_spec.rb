@@ -12,10 +12,10 @@ describe Statement do
 
   context '#print' do
     it 'outputs the history in desired format' do
-      @account_history = [['06/03/2019', 100, nil, 100],
-                          ['06/03/2019', 100, nil, 200]]
-      statement = Statement.new(@account_history)
-      expect { statement.print }.to output(
+      account_history = [['06/03/2019', 100, nil, 100],
+                         ['06/03/2019', 100, nil, 200]]
+
+      expect { subject.print(account_history) }.to output(
         "date || credit || debit || balance\n06/03/2019 || 100 ||  || 100\n06/03/2019 || 100 ||  || 200\n"
       ).to_stdout
     end
