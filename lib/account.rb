@@ -5,9 +5,9 @@ require 'date'
 class Account
   attr_reader :balance, :account_history
 
-  def initialize
+  def initialize(account_history)
     @balance = 0
-    @account_history = []
+    @account_history = account_history
   end
 
   def deposit(deposit_amount)
@@ -28,11 +28,11 @@ class Account
 
   def update_credit_history
     balance = @balance
-    @account_history.push([Date.today.strftime('%m/%d/%Y'), @deposit_amount, nil, balance])
+    @account_history.update([Date.today.strftime('%m/%d/%Y'), @deposit_amount, nil, balance])
   end
 
   def update_debit_history
     balance = @balance
-    @account_history.push([Date.today.strftime('%m/%d/%Y'), nil, @withdrawal_amount, balance])
+    @account_history.update([Date.today.strftime('%m/%d/%Y'), nil, @withdrawal_amount, balance])
   end
 end
