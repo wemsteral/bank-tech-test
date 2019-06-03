@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_relative 'account'
-
 class Statement
   def initialize(account_history)
     @account_history = account_history

@@ -37,3 +37,22 @@ As a user
 So I can view my banking history
 I want to be able to see a statement of all my activity
 ```
+
+### Set Up
+
+- Clone this repo
+- Bundle Install
+- Tests run with terminal command 'rspec'
+- Coverage visible in rspec report
+
+### How to use
+
+- Enter irb via terminal
+- `load './lib/account.rb'`
+- `load './lib/statement.rb'`
+
+### Planning
+
+![DM1](https://github.com/wemsteral/bank-tech-test/blob/master/DM1.jpg)
+
+###

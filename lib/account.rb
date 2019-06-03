@@ -3,8 +3,7 @@
 require 'date'
 
 class Account
-  attr_reader :balance
-  attr_reader :account_history
+  attr_reader :balance, :account_history
 
   def initialize
     @balance = 0
@@ -19,9 +18,7 @@ class Account
 
   def withdraw(withdrawal_amount)
     @withdrawal_amount = withdrawal_amount
-    if (@balance - withdrawal_amount) < 0 || @balance == 0
-      raise 'insufficient funds'
-    end
+    raise 'insufficient funds' if (@balance - withdrawal_amount) < 0
 
     @balance -= withdrawal_amount
     update_debit_history
@@ -31,13 +28,11 @@ class Account
 
   def update_credit_history
     balance = @balance
-    deposit_event = [Date.today.strftime('%m/%d/%Y'), @deposit_amount, nil, balance]
-    @account_history.push(deposit_event)
+    @account_history.push([Date.today.strftime('%m/%d/%Y'), @deposit_amount, nil, balance])
   end
 
   def update_debit_history
     balance = @balance
-    withdrawal_event = [Date.today.strftime('%m/%d/%Y'), nil, @withdrawal_amount, balance]
-    @account_history.push(withdrawal_event)
+    @account_history.push([Date.today.strftime('%m/%d/%Y'), nil, @withdrawal_amount, balance])
   end
 end
