@@ -24,7 +24,7 @@ describe History do
                                     date: '01/01/19',
                                     credit_amount: '500.00',
                                     debit_amount: nil,
-                                    balance: '500.00')
+                                    balance: '500.0')
       subject.update(deposit_entry)
       expect { subject.print }.to output(
         "date || credit || debit || balance\n01/01/19 || 500.00 ||  || 500.00\n"
@@ -36,17 +36,17 @@ describe History do
                                      date: '01/01/19',
                                      credit_amount: '500.00',
                                      debit_amount: nil,
-                                     balance: '500.00')
+                                     balance: '500.0')
       deposit_entry2 = object_double('deposit_entry2',
                                      date: '02/01/19',
                                      credit_amount: '600.00',
                                      debit_amount: nil,
-                                     balance: '1100.00')
+                                     balance: '1100.0')
       deposit_entry3 = object_double('deposit_entry3',
                                      date: '03/01/19',
                                      credit_amount: nil,
-                                     debit_amount: '750',
-                                     balance: '350.00')
+                                     debit_amount: '750.00',
+                                     balance: '350.0')
       subject.update(deposit_entry1)
       subject.update(deposit_entry2)
       subject.update(deposit_entry3)
@@ -54,7 +54,7 @@ describe History do
       expect { subject.print }.to output("date || credit || debit || balance
 01/01/19 || 500.00 ||  || 500.00
 02/01/19 || 600.00 ||  || 1100.00
-03/01/19 ||  || 750 || 350.00\n")
+03/01/19 ||  || 750.00 || 350.00\n")
         .to_stdout
     end
   end

@@ -14,7 +14,7 @@ class History
   def print
     puts 'date || credit || debit || balance'
     @transactions.each do |entry|
-      puts "#{entry.date} || #{entry.credit_amount} || #{entry.debit_amount} || #{entry.balance}"
+      puts "#{entry.date} || #{entry.credit_amount} || #{entry.debit_amount} || #{entry.balance}0"
     end
   end
 end

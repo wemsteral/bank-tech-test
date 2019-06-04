@@ -30,7 +30,9 @@
         null,
         null,
         1,
-        4,
+        2,
+        2,
+        null,
         null,
         null,
         null,
@@ -79,6 +81,8 @@
         2,
         2,
         null,
+        null,
+        1,
         null
       ],
       "/Users/AW/Desktop/bank-tech-test/lib/deposit.rb": [
@@ -177,6 +181,7 @@
         1,
         1,
         1,
+        1,
         2,
         null,
         null,
@@ -233,6 +238,10 @@
         1,
         1,
         1,
+        null,
+        null,
+        null,
+        null,
         1,
         2,
         null,
@@ -260,31 +269,6 @@
         1,
         1,
         2,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null
-      ],
-      "/Users/AW/Desktop/bank-tech-test/spec/statement_spec.rb": [
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
         null,
         null,
         null,
@@ -311,6 +295,6 @@
         null
       ]
     },
-    "timestamp": 1559663105
+    "timestamp": 1559667201
   }
 }

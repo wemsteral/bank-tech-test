@@ -14,14 +14,16 @@ class Account
   end
 
   def deposit(deposit_amount, deposit = Deposit)
-    @balance += deposit_amount.round(2)
-    @account_history.update(deposit.new(deposit_amount, @balance))
+    @balance += deposit_amount.to_f.round(2)
+    @account_history.update(deposit.new(deposit_amount.to_f, @balance))
   end
 
   def withdraw(withdrawal_amount, withdrawal = Withdrawal)
     raise 'insufficient funds' if (@balance - withdrawal_amount) < 0.00
 
-    @balance -= withdrawal_amount.round(2)
-    @account_history.update(withdrawal.new(withdrawal_amount, @balance))
+    @balance -= withdrawal_amount.to_f.round(2)
+    @account_history.update(withdrawal.new(withdrawal_amount.to_f, @balance))
   end
+
+  private
 end

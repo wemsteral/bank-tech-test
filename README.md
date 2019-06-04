@@ -61,14 +61,21 @@ I want to be able to see a statement of all my activity
 Models -
 
 I decided to use 4 classes for this challenge: Account, History, Deposit & Withdrawal.
-Account is the main point of contact for the user as this mimics 'real life', a customer would manage their account via their account.\n
-History is a separate class as a preemptive measure. It is likely that, later down the line, this class could communicate with a database and a single account. Even without a database, it makes managing the data easier and cleaner.\n
+Account is the main point of contact for the user as this mimics 'real life', a customer would manage their account via their account.
+
+History is a separate class as a preemptive measure. It is likely that, later down the line, this class could communicate with a database and a single account. Even without a database, it makes managing the data easier and cleaner.
+
 Deposit & Withdrawal arguably _could_ have been one class (Transaction?), but again, I feel as they are fundamentally different things, it is important for them to have their own identity. It makes the project more scalable again, in that it wouldn't be difficult to now filter between types of transaction.
 
 Testing -
 
-Feature testing dictated the process in which this app would be used in the terminal.\n
+Feature testing dictated the process in which this app would be used in the terminal.
+
 Unit testing required a lot of mocking and stubbing to eliminate dependencies. 'object_double' in rspec is very useful!
+
+Test coverage -
+
+100%
 
 Next time -
 

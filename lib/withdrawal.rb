@@ -5,7 +5,7 @@ class Withdrawal
 
   def initialize(amount, balance)
     @date = Date.today.strftime('%m/%d/%Y')
-    @debit_amount = amount
+    @debit_amount = amount.to_s + '0'
     @credit_amount = nil
     @balance = balance
   end
