@@ -4,13 +4,13 @@ require 'account'
 require 'date'
 
 describe Account do
+  let(:history) { double :history }
+  let(:subject) { Account.new(account_history: history, starting_balance: 0) }
+
   before(:each) do
     allow(history).to receive(:update)
     allow(history).to receive(:clear)
   end
-
-  let(:history) { double :history }
-  let(:subject) { Account.new(history) }
 
   it 'initialises with empty account' do
     expect(subject.balance).to eq 0
@@ -35,16 +35,11 @@ describe Account do
       expect(subject).to respond_to :withdraw
     end
 
-    it 'allows user to withdraw a chosen amount of money' do
-      subject.deposit(50)
-      expect { subject.withdraw(50) }.to change { subject.balance }.from(50).to(0)
-    end
-
     it 'prohibits user from withdrawals if balance is 0' do
       expect { subject.withdraw(50) }.to raise_error 'insufficient funds'
     end
 
-    it 'also prohibits user if withdrawal will result in less than 0' do
+    it 'prohibits user if withdrawal will result in less than 0' do
       subject.deposit(50)
       expect { subject.withdraw(100) }.to raise_error 'insufficient funds'
     end

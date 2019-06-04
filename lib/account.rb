@@ -1,38 +1,26 @@
 # frozen_string_literal: true
 
 require 'date'
+require_relative 'deposit'
+require_relative 'withdrawal'
 
 class Account
   attr_reader :balance, :account_history
 
-  def initialize(account_history)
-    @balance = 0
+  def initialize(account_history: History.new, starting_balance: 0.00)
+    @balance = starting_balance
     @account_history = account_history
   end
 
   def deposit(deposit_amount)
-    @deposit_amount = deposit_amount
-    @balance += deposit_amount
-    update_credit_history
+    @balance += deposit_amount.round(2)
+    @account_history.update(Deposit.new(deposit_amount, @balance))
   end
 
   def withdraw(withdrawal_amount)
-    @withdrawal_amount = withdrawal_amount
-    raise 'insufficient funds' if (@balance - withdrawal_amount) < 0
+    raise 'insufficient funds' if (@balance - withdrawal_amount) < 0.00
 
-    @balance -= withdrawal_amount
-    update_debit_history
-  end
-
-  private
-
-  def update_credit_history
-    balance = @balance
-    @account_history.update([Date.today.strftime('%m/%d/%Y'), @deposit_amount, nil, balance])
-  end
-
-  def update_debit_history
-    balance = @balance
-    @account_history.update([Date.today.strftime('%m/%d/%Y'), nil, @withdrawal_amount, balance])
+    @balance -= withdrawal_amount.round(2)
+    @account_history.update(Withdrawal.new(withdrawal_amount, @balance))
   end
 end

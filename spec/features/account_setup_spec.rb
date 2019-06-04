@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 describe 'account setup' do
-  let(:history) { History.new }
-  let(:empty_account) { Account.new(history) }
+  let(:empty_account) { Account.new }
 
   it 'user can set up an account with blank history' do
     expect(empty_account.account_history.transactions).to eq []
@@ -13,7 +12,7 @@ describe 'account setup' do
   end
 
   it 'user can set up account with custom starting balance' do
-    wealthy_account = Account.new(history, 1000.00)
+    wealthy_account = Account.new(starting_balance: 1000.00)
     expect(wealthy_account.balance).to eq 1000.00
   end
 end
