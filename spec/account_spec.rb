@@ -26,7 +26,9 @@ describe Account do
     end
 
     it 'allows user to deposit a chosen amount of money' do
-      expect { subject.deposit(100, deposit) }.to change { subject.balance }.from(0).to(100)
+      expect { subject.deposit(100, deposit) }.to change {
+                                                    subject.balance
+                                                  } .from(0).to(100)
     end
   end
 

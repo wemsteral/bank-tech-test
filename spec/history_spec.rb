@@ -20,7 +20,11 @@ describe History do
 
   context '#print' do
     it 'outputs a formatted transaction' do
-      deposit_entry = object_double('deposit_entry', date: '01/01/19', credit_amount: '500.00', debit_amount: nil, balance: '500.00')
+      deposit_entry = object_double('deposit_entry',
+                                    date: '01/01/19',
+                                    credit_amount: '500.00',
+                                    debit_amount: nil,
+                                    balance: '500.00')
       subject.update(deposit_entry)
       expect { subject.print }.to output(
         "date || credit || debit || balance\n01/01/19 || 500.00 ||  || 500.00\n"
@@ -28,9 +32,21 @@ describe History do
     end
 
     it 'outputs multiple formatted transactions' do
-      deposit_entry1 = object_double('deposit_entry1', date: '01/01/19', credit_amount: '500.00', debit_amount: nil, balance: '500.00')
-      deposit_entry2 = object_double('deposit_entry2', date: '02/01/19', credit_amount: '600.00', debit_amount: nil, balance: '1100.00')
-      deposit_entry3 = object_double('deposit_entry3', date: '03/01/19', credit_amount: nil, debit_amount: '750', balance: '350.00')
+      deposit_entry1 = object_double('deposit_entry1',
+                                     date: '01/01/19',
+                                     credit_amount: '500.00',
+                                     debit_amount: nil,
+                                     balance: '500.00')
+      deposit_entry2 = object_double('deposit_entry2',
+                                     date: '02/01/19',
+                                     credit_amount: '600.00',
+                                     debit_amount: nil,
+                                     balance: '1100.00')
+      deposit_entry3 = object_double('deposit_entry3',
+                                     date: '03/01/19',
+                                     credit_amount: nil,
+                                     debit_amount: '750',
+                                     balance: '350.00')
       subject.update(deposit_entry1)
       subject.update(deposit_entry2)
       subject.update(deposit_entry3)
