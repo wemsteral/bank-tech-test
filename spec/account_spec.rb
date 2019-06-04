@@ -4,13 +4,15 @@ require 'account'
 require 'date'
 
 describe Account do
+  let(:deposit) { double :deposit, new: 'deposit' }
   let(:history) { double :history }
   let(:subject) { Account.new(account_history: history, starting_balance: 0) }
 
   before(:each) do
     allow(history).to receive(:update)
-    allow(history).to receive(:clear)
   end
+
+  # initialize
 
   it 'initialises with empty account' do
     expect(subject.balance).to eq 0
@@ -24,7 +26,7 @@ describe Account do
     end
 
     it 'allows user to deposit a chosen amount of money' do
-      expect { subject.deposit(100) }.to change { subject.balance }.from(0).to(100)
+      expect { subject.deposit(100, deposit) }.to change { subject.balance }.from(0).to(100)
     end
   end
 

@@ -49,11 +49,9 @@ I want to be able to see a statement of all my activity
 
 - Enter irb via terminal
   To set up both objects:
-- `load './lib/account.rb'`
-- `load './lib/statement.rb'`
+- `require './irb_helper.rb'`
 - `account = Account.new`
-- `statement = Statement.new(account_history)`
-- Call methods to your heart's content.
+- Call the account methods to your heart's content.
 
 ### Planning
 
