@@ -61,7 +61,7 @@ I want to be able to see a statement of all my activity
 Models -
 
 I decided to use 4 classes for this challenge: Account, History, Deposit & Withdrawal.
-Account is the main point of contact for the user as this mimics 'real life', a customer would manage their account via their account.
+Account is the main point of contact for the user as this mimics 'real life', a customer would manage their account via an interface that offers balance/withdraw/deposit etc.
 
 History is a separate class as a preemptive measure. It is likely that, later down the line, this class could communicate with a database and a single account. Even without a database, it makes managing the data easier and cleaner.
 
